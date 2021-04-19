@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+        <!-- Navbar  -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-info" id="navbar" style="z-index: 3;">             
+            <div class="collapse navbar-collapse"> 
+                <a class="navbar-brand" id="todo-list">Todo List</a> 
+            </div>             
+            <a class="navbar-brand right" id="logout">Logout</a>                                  
+        </nav>
+        <!-- End Navbar -->
+    
+    
+        <!-- Login Form and Register -->
+        <div id="contain-form">
+            <!-- LOGIN -->
+            <div class="text-center" id="login-form" style="background-color: white; width: 90%; margin: auto; border-radius: 30px;">
+                <div class="ml-auto" style="float: right; margin-top: 10%; padding-left: 0%; padding-left: 0%; background-color: white; border-radius:0 30px 30px 0;">
+                    <h5>Fancy Todo</h5>
+                    <video src="./video/todo.mp4" width="320px" height="250" style="float: right; margin-top: 12%; padding-left: 0%; background-color: white; border-radius:0 30px 30px 0;"></video>
+                </div>
+                <div class="ml-auto" style="float: left; margin-top: 10%; padding-right: 0; margin-right: 0; background-color: white; border-radius:0 30px 30px 0;">
+                    <h5>Make simple Life</h5>
+                    <video src="./video/todo2.mp4" width="320px" height="250" style="float: left; margin-top: 12%; padding-left: 0%; background-color: white; border-radius:0 30px 30px 0;"></video>
+                </div>
+                <div class="container" style="margin: 12px 0 12px 0; padding-right: 0;">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" style="padding-right: 0; margin-right:0%">
+                        <div class="card card-signin my-5">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Sign In</h5>
+                                <form class="form-signin">
+                                    <div class="form-label-group">
+                                        <input type="email" id="emaillogin" class="form-control" placeholder="Email address" required autofocus>
+                                        <label for="emaillogin">Email address</label>
+                                    </div>
+                                    
+                                    <div class="form-label-group">
+                                        <input type="password" id="passwordlogin" class="form-control" placeholder="Password" required>
+                                        <label for="passwordlogin">Password</label>  
+                                    </div>
+                                    
+                                    <button class="btn btn-lg btn-primary btn-block text-uppercase" id="btn-login">Sign in</button>
+                                    <hr>
+                                    <h5 class="font-weight-light text-center">or</h5>
+                                    <br>
+                                    <div class="text-center">
+                                        <button id="google-btn" class="g-signin2 btn-lg" data-onsuccess="onSignIn"></button>
+                                    </div>
+                                    <button class="btn btn-lg btn-facebook btn-block text-uppercase" id="btn-go-register">Sign Up</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END LOGIN PAGE -->
+            
+            <!-- REGISTER -->
+            <div class="text-center" id="register-form" style="background-color: none; width: 80%; margin: auto;">
+            
+                <div class="container" style="margin-left: 0;">
+                <div class="mt-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                                <div class="card card-signin my-5">
+                                <div class="card-body">
+                                <h5 class="card-title text-center">Sign Up</h5>
+                                <form class="form-signin">
+        
+                                    <div class="form-label-group">
+                                        <input type="text" id="reg-name" class="form-control" placeholder="Full Name" required autofocus>
+                                        <label for="reg-name">Full Name</label>
+                                    </div>
+        
+                                    <div class="form-label-group">
+                                        <input type="email" id="reg-email" class="form-control" placeholder="Email address" required autofocus>
+                                        <label for="reg-email">Email address</label>
+                                    </div>
+            
+                                    <div class="form-label-group">
+                                        <input type="password" id="reg-password" class="form-control" placeholder="Password" required>
+                                        <label for="reg-password">Password</label>
+                                    </div>
+                                    <hr class="my-4">
+                                    <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit" id="btn-register">Sign Up</button>
+                                </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- END REGISTER PAGE -->
+        <!-- END FORM -->
+    
+        <!-- CONTENT -->
+        <div class="row">
+           <div class="side" id="contain-weather">
+           </div>
+           <!-- Add Todo -->
+           <div class="main">
+                <div id="tag-name" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                    <h5>Add New Task</h5>
+                    <hr>
+                    <div class="text-center">
+                        <form>
+                            <input id="src-todo" type="number" placeholder="Search.." name="search" required>
+                            <button id="btn-src-todo"><i class="fa fa-search"></i></button>
+                            <h3>||</h3>
+                            <button id="add-todo" class="btn btn-info"> Add New Todo</button>
+                          </form>
+                    </div>
+                </div>
+                <div class="container-xs" id ="add-edit-todo">
+                    <form>
+                        <div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Title..." required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="due_date">Due Date</label>
+                                    <input type="date" class="form-control" id="due_date" placeholder="Input date..." required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="decription">Decription :</label>
+                            <textarea name="dcp" id="description" class="form-control" cols="1" rows="2" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="btn-add-todo" class=" btn btn-primary text-uppercase">Add New Todo</button>
+                            <button type="submit" id="btn-edit-todo" class="btn btn-primary text-uppercase">Edit Todo</button>
+                            <button type="submit" id="cancel" class="btn btn-primary text-uppercase">Cancel</button>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+                <!-- End Form -->
+                
+                
+                <!-- List Todo -->
+                <div class="container-todo" id="todo" style="z-index: 1;">
+                    <!-- <div id="myDIV" class="header">
+                        <h2>My To Do List</h2>
+                        <input type="text" id="myInput" placeholder="Title...">
+                        <span onclick="newElement()" class="addBtn">Add</span>
+                    </div> -->
+                    <div class="row justify-content-center todo-ul">
+                        <ul id="myUL">
+                            <!-- <li class="checked">Pay bills</li> -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- End List -->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+
+  </body>
+</html>
